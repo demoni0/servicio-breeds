@@ -1,10 +1,13 @@
 package cl.mobdev.prueba.serviciobreeds.service;
 
-import cl.mobdev.prueba.serviciobreeds.clients.BreedClientRest;
-import cl.mobdev.prueba.serviciobreeds.models.BreedResponse;
-import cl.mobdev.prueba.serviciobreeds.models.Image;
-import cl.mobdev.prueba.serviciobreeds.models.ImageResponse;
-import cl.mobdev.prueba.serviciobreeds.service.impl.BreedServiceImpl;
+import cl.mobdev.prueba.serviciobreeds.data.remote.api.BreedClientRest;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.GetAllBreedImpl;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.GetAllImageImpl;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.GetBreedDetailsImpl;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.response.BreedResponse;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.response.ImageResponse;
+import cl.mobdev.prueba.serviciobreeds.domain.model.Image;
+
 import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,18 +16,12 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doReturn;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BreedServiceTest {
@@ -35,7 +32,13 @@ public class BreedServiceTest {
         private BreedClientRest breedClientRest;
 
         @InjectMocks
-        private BreedServiceImpl breedService;
+        private GetBreedDetailsImpl breedService;
+
+        @InjectMocks
+        private GetAllBreedImpl getAllBreed;
+
+        @InjectMocks
+        private GetAllImageImpl getAllImage;
 
         @Before
         public void setUp() {
@@ -62,7 +65,7 @@ public class BreedServiceTest {
 
             given(breedClientRest.getAllBreeds()).willReturn(new Gson().toJson(message));
 
-            String[] subBreeds = breedService.getAllSubBreedsByBreed(breed);
+            String[] subBreeds = getAllBreed.getAllSubBreedsByBreed(breed);
 
             Assert.assertEquals(3, subBreeds.length);
         }
@@ -73,7 +76,7 @@ public class BreedServiceTest {
 
         given(breedClientRest.getAllBreeds()).willReturn(new Gson().toJson(message));
 
-        String[] subBreeds = breedService.getAllSubBreedsByBreed(breed);
+        String[] subBreeds = getAllBreed.getAllSubBreedsByBreed(breed);
 
         Assert.assertEquals(0, subBreeds.length);
     }
@@ -84,7 +87,7 @@ public class BreedServiceTest {
 
         given(breedClientRest.getAllImagesForBreed(breed)).willReturn(null);
 
-        Image[] images = breedService.getAllImagesForBreedAndSubBreeds(breed);
+        Image[] images = getAllImage.getAllImagesForBreedAndSubBreeds(breed);
 
         Assert.assertNull(images);
     }
@@ -95,7 +98,7 @@ public class BreedServiceTest {
 
         given(breedClientRest.getAllImagesForBreed(breed)).willReturn(new Gson().toJson(images));
 
-        Image[] images = breedService.getAllImagesForBreedAndSubBreeds(breed);
+        Image[] images = getAllImage.getAllImagesForBreedAndSubBreeds(breed);
 
         Assert.assertNotNull(images);
     }

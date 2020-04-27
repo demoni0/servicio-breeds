@@ -1,7 +1,7 @@
-package cl.mobdev.prueba.serviciobreeds.controller;
+package cl.mobdev.prueba.serviciobreeds.presentation;
 
-import cl.mobdev.prueba.serviciobreeds.models.Breed;
-import cl.mobdev.prueba.serviciobreeds.service.BreedService;
+import cl.mobdev.prueba.serviciobreeds.domain.model.Breed;
+import cl.mobdev.prueba.serviciobreeds.domain.GetBreedDetailsUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BreedController {
 
     @Autowired
-    private BreedService breedService;
+    private GetBreedDetailsUseCase breedService;
 
     @GetMapping("/breed/{breed}")
     public ResponseEntity<Breed> getBreed(@PathVariable("breed") String breed){

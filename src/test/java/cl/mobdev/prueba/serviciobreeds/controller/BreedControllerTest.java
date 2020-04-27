@@ -1,6 +1,7 @@
 package cl.mobdev.prueba.serviciobreeds.controller;
 
-import cl.mobdev.prueba.serviciobreeds.models.Breed;
+import cl.mobdev.prueba.serviciobreeds.domain.model.Breed;
+import cl.mobdev.prueba.serviciobreeds.presentation.BreedController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

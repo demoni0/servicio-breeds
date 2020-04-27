@@ -1,4 +1,4 @@
-package cl.mobdev.prueba.serviciobreeds.models;
+package cl.mobdev.prueba.serviciobreeds.domain.model;
 
 public class Image {
     private String url;

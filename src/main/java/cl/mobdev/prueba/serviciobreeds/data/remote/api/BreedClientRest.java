@@ -1,4 +1,4 @@
-package cl.mobdev.prueba.serviciobreeds.clients;
+package cl.mobdev.prueba.serviciobreeds.data.remote.api;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
