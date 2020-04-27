@@ -1,4 +1,4 @@
-package cl.mobdev.prueba.serviciobreeds.data.remote.model;
+package cl.mobdev.prueba.serviciobreeds.data.remote;
 
 import cl.mobdev.prueba.serviciobreeds.domain.GetBreedDetailsUseCase;
 import cl.mobdev.prueba.serviciobreeds.domain.model.Breed;

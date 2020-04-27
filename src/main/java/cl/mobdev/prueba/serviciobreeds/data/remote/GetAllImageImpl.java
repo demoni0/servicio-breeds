@@ -1,7 +1,7 @@
-package cl.mobdev.prueba.serviciobreeds.data.remote.model;
+package cl.mobdev.prueba.serviciobreeds.data.remote;
 
 import cl.mobdev.prueba.serviciobreeds.data.remote.api.BreedClientRest;
-import cl.mobdev.prueba.serviciobreeds.data.remote.model.response.ImageResponse;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.ImageResponse;
 import cl.mobdev.prueba.serviciobreeds.domain.model.Image;
 import cl.mobdev.prueba.serviciobreeds.domain.repository.GetAllImage;
 import com.google.gson.Gson;

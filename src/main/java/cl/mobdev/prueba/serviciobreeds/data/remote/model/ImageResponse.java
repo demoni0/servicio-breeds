@@ -1,4 +1,4 @@
-package cl.mobdev.prueba.serviciobreeds.data.remote.model.response;
+package cl.mobdev.prueba.serviciobreeds.data.remote.model;
 
 public class ImageResponse {
     private String status;

@@ -1,7 +1,7 @@
-package cl.mobdev.prueba.serviciobreeds.data.remote.model;
+package cl.mobdev.prueba.serviciobreeds.data.remote;
 
 import cl.mobdev.prueba.serviciobreeds.data.remote.api.BreedClientRest;
-import cl.mobdev.prueba.serviciobreeds.data.remote.model.response.BreedResponse;
+import cl.mobdev.prueba.serviciobreeds.data.remote.model.BreedResponse;
 import cl.mobdev.prueba.serviciobreeds.domain.repository.GetAllBreeds;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
